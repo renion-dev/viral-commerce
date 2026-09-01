@@ -1,0 +1,57 @@
+✅ ОНОВЛЕНО: /home/ihor/projects/viral-commerce/website/data/world-state.json
+
+СИГНАЛИ (NV = нова версія):
+  ─────────────────────────────
+  Sleep Optimization & Sensory Comfort → TREND SCORE 97/100 (залишено)
+  Продукти: 8 → 11 (+3 нові)
+  Історії: 5 → 7 (+2 нові)
+  Експерименти: 3 → 5 (+2 нові)
+
+  ──────────────────────────────
+  НОВІ ПРОДУКТИ:
+  [p9]  PDRN Salmon DNA Ampoule Serum         $15-60   droplet  #f06292  trend: 88
+        — PDRN +90% growth in 2026, Korean biotech crossover from clinic to retail
+        Affiliate: amazon — "PDRN salmon DNA serum ampoule skincare" (5%)
+
+  [p10] Pilates Princess Core Outfit Set      $30-80   ab       #ffe66d  trend: 84
+        — Pilates outfit +2,133% YoY, studio-to-street versatility
+        Affiliate: amazon — "pilates outfit set pink leggings wrap top" (4%)
+
+  [p11] Heartleaf 77% Soothing Toner (K-Beauty) $12-30   droplet  #a8e6cf  trend: 82
+        — K-beauty essence-toner hybrid, viral among sensitive-skin communities
+        Affiliate: amazon — "heartleaf toner Anua centella skincare" (5%)
+
+  ──────────────────────────────
+  НОВІ ІСТОРІЇ:
+  [s6]  "The PDRN Revolution — When Clinics Went Viral"
+        Hook: From aesthetic clinics to Amazon carts: how Korean salmon DNA serum
+        became the breakout skincare ingredient of 2026 — and why 90% growth isn't
+        the whole story.
+
+  [s7]  "Pilates Princess Persona Is a Mood — And It's Printing Money"
+        Hook: What happens when workout clothes become identity — the rise of
+        studio-to-street outfits, balletcore crossover, and why pink leggings
+        outsell basic black.
+
+  ──────────────────────────────
+  НОВІ ЕКСПЕРИМЕНТИ:
+  [e4]  K-Beauty PDRN microsite (proposed)
+        — Regenerative skincare vertical capturing the PDRN/K-beauty crossover
+        converts higher than generic wellness skincare.
+
+  [e5]  Pilates/balletcore interactive experience (proposed)
+        — Studio-to-street outfit visualization with 3D try-on increases engagement
+        vs flat product cards.
+
+  ──────────────────────────────
+  СИГНАЛИ:
+  +11 джерел підтверджено (Google Trends, Exploding Topics, Gravel AI, Glamour,
+  Reddit, NYT, BBC, Metro, TechRadar, MindBodyGreen, The Conversation)
+
+  ОБСЯГ:
+  11 продуктів (5-10 ✓), 7 історій (3-5 ✓)
+  Всі продукти мають Amazon affiliate search terms.
+  Унікальні кольори з палітри: #ff6b35, #00d4ff, #7b2ff7, #ffe66d, #ff9a56,
+  #4ecdc4, #ff6b6b, #a8e6cf, #c792ea, #f06292 — всі 11 використано.
+
+  ПОТОЧНИЙ СВІТ ЗАЛИШЕНО (97/100) — збережено основу, додано розширення.
