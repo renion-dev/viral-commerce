@@ -1,0 +1,88 @@
+{
+  "world": {
+    "id": "sleep-tech-2026",
+    "name": "Sleep Technology",
+    "theme": {
+      "primary": "#0a0e27",
+      "secondary": "#1a1f4e",
+      "accent": "#00d4ff",
+      "glow": "#7b2ff7"
+    },
+    "trend_score": 94,
+    "active_since": "2026-09-01",
+    "signal_sources": [
+      "Google Trends: mouth tape 134% YoY",
+      "Google Trends: sleep strips breakout",
+      "HN: health tech discussions",
+      "Reddors: r/sleep r/biohacking"
+    ]
+  },
+  "products": [
+    {
+      "id": "p1",
+      "name": "Mouth Tape Sleep Strips",
+      "category": "wellness",
+      "trend_score": 94,
+      "description": "Drug-free sleep improvement through gentle mouth sealing. 134% YoY search growth.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "mouth tape sleep strips",
+        "commission": "4%"
+      },
+      "price_range": "$12-25",
+      "visual": "geometric-strip"
+    },
+    {
+      "id": "p2",
+      "name": "Blue Light Therapy Wand",
+      "category": "beauty-tech",
+      "trend_score": 87,
+      "description": "Handheld blue LED device for acne treatment. Under 5% of red light market but growing.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "blue light therapy wand",
+        "commission": "4%"
+      },
+      "price_range": "$35-80",
+      "visual": "glow-wand"
+    },
+    {
+      "id": "p3",
+      "name": "Smart Sleep Mask",
+      "category": "tech-wearable",
+      "trend_score": 72,
+      "description": "Sleep mask with built-in speakers and sleep tracking.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "smart sleep mask bluetooth",
+        "commission": "4%"
+      },
+      "price_range": "$40-120",
+      "visual": "orb-mask"
+    }
+  ],
+  "stories": [
+    {
+      "id": "s1",
+      "title": "The Mouth Tape Revolution",
+      "hook": "Why millions are taping their mouths shut at night",
+      "cta": "Explore Sleep Tech",
+      "visual": "mouth-tape-closeup"
+    },
+    {
+      "id": "s2",
+      "title": "Beyond Counting Sheep",
+      "hook": "The $470 billion sleep economy is just getting started",
+      "cta": "Discover More",
+      "visual": "sleep-economy-chart"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "e1",
+      "name": "3D product interaction",
+      "hypothesis": "3D product exploration increases affiliate click-through",
+      "status": "active"
+    }
+  ]
+}
