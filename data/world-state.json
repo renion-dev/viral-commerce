@@ -1,80 +1,105 @@
 {
   "world": {
-    "id": "sleep-tech-2026",
-    "name": "Sleep Technology",
+    "id": "mental-wellness-2026",
+    "name": "Mental Wellness & Sensory Comfort",
     "theme": {
       "primary": "#0a0e27",
       "secondary": "#1a1f4e",
-      "accent": "#00d4ff",
-      "glow": "#7b2ff7"
+      "accent": "#7b2ff7",
+      "glow": "#b47cff"
     },
-    "trend_score": 94,
+    "trend_score": 96,
     "active_since": "2026-09-01",
     "signal_sources": [
-      "Google Trends: mouth tape 134% YoY",
-      "Google Trends: sleep strips breakout",
-      "HN: health tech discussions",
-      "Reddors: r/sleep r/biohacking"
+      "Google Trends: squeezy +1,937% YoY (110K searches)",
+      "Google Trends: sensory toy +173% YoY (49.5K searches)",
+      "Google Trends: Japanese walking +2,968% YoY",
+      "Google Trends: burnout recovery +1,000%+ YoY",
+      "Google Trends: attachment styles +227.4% YoY",
+      "Google Trends: emotional fitness breakout",
+      "HN: FDA wearable ketone+blood sugar monitor (Sep 2026)",
+      "Reddit: r/Biohackers 729K members, r/Biohacking 18K members"
     ]
   },
   "products": [
     {
       "id": "p1",
-      "name": "Mouth Tape Sleep Strips",
-      "category": "wellness",
-      "trend_score": 94,
-      "description": "Drug-free sleep improvement through gentle mouth sealing. 134% YoY search growth.",
+      "name": "Sensory Squeeze Toys (Dumpling Squishy)",
+      "category": "sensory-comfort",
+      "trend_score": 96,
+      "description": "Breakout search phenomenon: dumpling squishy at 1.83M searches (+233% in 3 months). Tactile comfort products are the fastest-rising wellness category, projected at $20B with 9.5% CAGR. Viral unboxing clips drive overnight product discovery.",
       "affiliate": {
         "type": "amazon",
-        "search": "mouth tape sleep strips",
+        "search": "dumpling squishy toy sensory",
         "commission": "4%"
       },
-      "price_range": "$12-25",
-      "visual": "geometric-strip"
+      "price_range": "$5-20",
+      "visual": "squishy-dumpling"
     },
     {
       "id": "p2",
-      "name": "Blue Light Therapy Wand",
-      "category": "beauty-tech",
-      "trend_score": 87,
-      "description": "Handheld blue LED device for acne treatment. Under 5% of red light market but growing.",
+      "name": "Vagus Nerve Stimulation Device",
+      "category": "neuro-wellness",
+      "trend_score": 89,
+      "description": "Personal vagus nerve devices are surging as 49% of Americans report frequent stress. Targets the body's rest-and-digest system via gentle electrical stimulation. FDA cleared tDCS for at-home depression treatment opens the category.",
       "affiliate": {
         "type": "amazon",
-        "search": "blue light therapy wand",
+        "search": "vagus nerve stimulation device personal",
         "commission": "4%"
       },
-      "price_range": "$35-80",
-      "visual": "glow-wand"
+      "price_range": "$40-150",
+      "visual": "vagus-device"
     },
     {
       "id": "p3",
-      "name": "Smart Sleep Mask",
-      "category": "tech-wearable",
-      "trend_score": 72,
-      "description": "Sleep mask with built-in speakers and sleep tracking.",
+      "name": "Continuous Glucose & Ketone Wearable",
+      "category": "metabolic-tech",
+      "trend_score": 85,
+      "description": "FDA just authorized the first wearable that continuously monitors both ketone and blood sugar levels. Metabolic health tracking is going mainstream. HN discussion very active — closed-loop insulin delivery, non-invasive glucose sensing, metabolic psychiatry rising.",
       "affiliate": {
         "type": "amazon",
-        "search": "smart sleep mask bluetooth",
+        "search": "continuous glucose monitor wearable ketone",
         "commission": "4%"
       },
-      "price_range": "$40-120",
-      "visual": "orb-mask"
+      "price_range": "$100-300",
+      "visual": "cgm-wearable"
+    },
+    {
+      "id": "p4",
+      "name": "Japanese Walking & Functional Stability Kit",
+      "category": "movement-wellness",
+      "trend_score": 82,
+      "description": "Japanese walking search exploded +2,968% YoY. The 'no pain no gain' era is dying — consumers want smarter, shorter, biologically supportive movement. Plank hovers and functional stability exercises are displacing HIIT.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "walking fitness tracker functional movement",
+        "commission": "4%"
+      },
+      "price_range": "$20-60",
+      "visual": "walking-tracker"
     }
   ],
   "stories": [
     {
       "id": "s1",
-      "title": "The Mouth Tape Revolution",
-      "hook": "Why millions are taping their mouths shut at night",
-      "cta": "Explore Sleep Tech",
-      "visual": "mouth-tape-closeup"
+      "title": "The Squeeze Is the Point",
+      "hook": "Why 110,000 people are searching for squeeze toys every month — and what it says about a stressed-out generation",
+      "cta": "Explore Sensory Comfort",
+      "visual": "squishy-closeup"
     },
     {
       "id": "s2",
-      "title": "Beyond Counting Sheep",
-      "hook": "The $470 billion sleep economy is just getting started",
-      "cta": "Discover More",
-      "visual": "sleep-economy-chart"
+      "title": "Your Nervous System on-sale",
+      "hook": "Vagus nerve gadgets, brain stimulation, and the $800B wellness retreat economy are rewriting how we treat stress",
+      "cta": "Discover Calm Tech",
+      "visual": "vagus-nerve-diagram"
+    },
+    {
+      "id": "s3",
+      "title": "Metabolic Self-Awareness",
+      "hook": "FDA just approved the first wearable that reads your blood sugar and ketones continuously — here's what happens when everyone can see their metabolism in real time",
+      "cta": "Track Your Metabolism",
+      "visual": "cgm-graph"
     }
   ],
   "experiments": [
@@ -83,6 +108,12 @@
       "name": "3D product interaction",
       "hypothesis": "3D product exploration increases affiliate click-through",
       "status": "active"
+    },
+    {
+      "id": "e2",
+      "name": "Sensory comfort microsite",
+      "hypothesis": "A dedicated sensory comfort experience converts higher than general wellness",
+      "status": "proposed"
     }
   ]
 }
