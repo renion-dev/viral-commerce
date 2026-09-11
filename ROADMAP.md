@@ -1,52 +1,104 @@
-# Roadmap
+# The Signal — Roadmap & Progress
 
-## Phase 0: Foundation ✅
-- [x] Audit environment
-- [x] Create project structure
-- [x] Define vision/architecture
-- [x] Design organization
-
-## Phase 1: MVP (Days 1-3)
-- [ ] Signal discovery (Google Trends + HN)
-- [ ] Opportunity scoring engine
-- [ ] World state JSON schema
-- [ ] Basic 3D scene (Three.js)
-- [ ] Dynamic content rendering
-- [ ] Share mechanism
-- [ ] Deploy to Vercel
-
-## Phase 2: Intelligence (Days 4-7)
-- [ ] Multiple signal sources (Reddit, X, news)
-- [ ] Content generation pipeline
-- [ ] Experiment engine
-- [ ] Analytics integration
-- [ ] First monetization test
-
-## Phase 3: Growth (Week 2+)
-- [ ] Advanced 3D interactions
-- [ ] Viral mechanics optimization
-- [ ] Multiple monetization paths
-- [ ] Autonomous operating cycles
-- [ ] Community features
-
-## Phase 4: Scale (Month 2+)
-- [ ] Multiple world themes
-- [ ] User-generated content
-- [ ] Marketplace features
-- [ ] Advanced experiments
-- [ ] Revenue optimization
+**Оновлено:** 2026-09-11
 
 ---
 
-## MVP Definition of Done
+## ЗРОБЛЕНО ✅
 
-The MVP is complete when:
+| Що | Коли | Статус |
+|-----|------|--------|
+| Проект створено | 09-01 | ✅ |
+| Аудит середовища | 09-01 | ✅ |
+| База проекту (візія, архітектура, документація) | 09-01 | ✅ |
+| 3D frontend (Three.js) | 09-01 | ✅ |
+| World State Engine | 09-01 | ✅ |
+| Signal Discovery cron | 09-01 | ✅ |
+| Gateway запущено | 09-01 | ✅ |
+| Vercel deploy (тимчасовий) | 09-01 | ✅ |
+| Дизайн (dark mode, trendy) | 09-11 | ✅ |
+| Amazon Associates реєстрація | 09-11 | ✅ |
+| Affiliate посилання (renionlab-20) | 09-11 | ✅ |
+| GitHub repo | 09-11 | ✅ |
+| Vercel production | 09-11 | ✅ |
+| Cron jobs створено (5 шт) | 09-11 | ✅ |
 
-1. Public URL loads with 3D scene
-2. Scene reflects current world state from JSON
-3. World state updates via cron (signal discovery)
-4. Users can interact with 3D objects
-5. Users can share artifacts
-6. At least 1 monetization path is active
-7. Analytics track key metrics
-8. All automated tests pass
+---
+
+## РОБОТА В ПРОЦЕСІ 🔄
+
+| Що | Проблема | Наступний крок |
+|-----|----------|----------------|
+| Зображення продуктів | Рандомні фото замість конкретних продуктів | Знайти реальні фото на Amazon або сайтах виробників |
+
+---
+
+## ПЛАН НАСТУПНИХ КРОКІВ 📋
+
+### Терміново (Цього тижня)
+
+| # | Завдання | Результат |
+|---|----------|-----------|
+| 1 | **Зображення продуктів** — замінити рандомні фото на реальні фото продуктів | Конкретні фото кожного продукту |
+| 2 | **Контент** — розширити до 20+ продуктів | Більше товарів = більше кліків |
+| 3 | **Email розсилка** — налаштувати автоматичну розсилку трендів | Підписники = повторні відвідувачі |
+
+### Короткостроково (Цього місяця)
+
+| # | Завдання | Результат |
+|---|----------|-----------|
+| 4 | **Аналітика** — підключити GoatCounter | Відстеження трафіку |
+| 5 | **SEO** — оптимізувати сторінки для пошуку | Органічний трафік |
+| 6 | **Домен** — купити thesignal.store | Брендова адреса |
+| 7 | **Соціальні мережі** — TikTok, Pinterest, Reddit | Трафік |
+
+### Довгостроково
+
+| # | Завдання | Результат |
+|---|----------|-----------|
+| 8 | **Digital products** — власні гайди | Високий маржинальний дохід |
+| 9 | **Sponsored placements** — бренди платять | Додатковий дохід |
+| 10 | **Marketplace** — інші продавці | Комісія з продажів |
+
+---
+
+## КРИТЕРІЇ УСПІХУ (KPI)
+
+| Метрика | Поточна | Ціль (1 міс) | Ціль (3 міс) |
+|---------|---------|--------------|--------------|
+| Трафік/міс | 0 | 10,000 | 50,000 |
+| Клік на affiliate | 0 | 500 | 3,000 |
+| Конверсія | 0% | 2% | 3% |
+| Дохід/міс | $0 | $50 | $500 |
+| Email підписники | 0 | 100 | 1,000 |
+
+---
+
+## АКТИВНІ АГЕНТИ (Cron Jobs)
+
+| Агент | Розклад | Що робить | Статус |
+|-------|---------|-----------|--------|
+| Signal Discovery | 3 год | Шукає тренди | ✅ Працює |
+| Product Scout | 6 год | Шукає продукти | ✅ Працює |
+| Image Scout | 6 год | Завантажує фото | ✅ Працює |
+| Content Writer | 12 год | Пише описи | ✅ Працює |
+| Website Updater | 6 год | Оновлює HTML | ✅ Працює |
+
+---
+
+## ВІДОМІ ПРОБЛЕМИ
+
+| Проблема | Вплив | Статус |
+|----------|-------|--------|
+| Зображення не ті | Високий | 🔴 Відкрито |
+| Мало продуктів | Середній | 🟡 В роботі |
+| Немає аналітики | Низький | 🟢 Заплановано |
+
+---
+
+## ВАЖЛИВІ РЕЧІ ЯКІ ТРЕБА ЗНАТИ
+
+1. **Не переписувати код без потреби** — спочатку план, потім дія
+2. **Перевіряти перед комітом** — чи працює, чи ні
+3. **Зберігати цей документ** — оновлювати після кожної значної зміни
+4. **Автоматизувати все** — якщо щоось можна автоматизувати, робити це відразу

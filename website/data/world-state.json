@@ -31,7 +31,14 @@
       "Vogue Adria: Loops Night Shift Hydrating Mouth Tape launches Sept 2026 — hydrogel + HA + peptides [4]",
       "Sleep Foundation: Loftie Lamp named Best Wake-Up Light 2026 — circadian optimization premium tier [2]",
       "TikTok Shop: Mood/ambient lights rank #7 trending products 2026 — bedroom lighting wellness [3]",
-      "Sleep market projected $71B by 2026; mouth tape market stratified into 3 tiers [5]"
+      "Sleep market projected $71B by 2026; mouth tape market stratified into 3 tiers [5]",
+      "Exploding Topics: Hypochlorous Acid Spray +8,300% search growth — clean sleep environment movement",
+      "Exploding Topics: Cold Plunge Sauna +7,000% — contrast therapy goes mainstream for recovery + sleep",
+      "Exploding Topics: Magnesium Bisglycinate +1,750% — mineral optimization replacing melatonin",
+      "Exploding Topics: Probiotic Soda +1,000% — gut-sleep axis emerging",
+      "TikTok Shop: Goli Ashwagandha Gummies 1M+ units/month — adaptogen sleep aids viral [9]",
+      "Glimpse 2026: Gut health directly linked to sleep quality — digestive wellness priority",
+      "Exploding Topics: PDRN/Salmon DNA Skincare +6,400-8,100% — biotech beauty-sleep convergence"
     ],
     "tagline": "The $470B sleep economy is waking up — sensory comfort, sleepmaxxing, beauty-sleep hybrids, and circadian optimization"
   },
@@ -49,7 +56,8 @@
       },
       "price_range": "$5-20",
       "visual": "octa",
-      "color": "#ff6b35"
+      "color": "#ff6b35",
+      "image": "assets/products/p1.jpg"
     },
     {
       "id": "p2",
@@ -64,7 +72,8 @@
       },
       "price_range": "$40-150",
       "visual": "tetra",
-      "color": "#00d4ff"
+      "color": "#00d4ff",
+      "image": "assets/products/p2.jpg"
     },
     {
       "id": "p3",
@@ -79,7 +88,8 @@
       },
       "price_range": "$100-300",
       "visual": "dodeca",
-      "color": "#7b2ff7"
+      "color": "#7b2ff7",
+      "image": "assets/products/p3.jpg"
     },
     {
       "id": "p4",
@@ -94,7 +104,8 @@
       },
       "price_range": "$20-60",
       "visual": "cylinder",
-      "color": "#ffe66d"
+      "color": "#ffe66d",
+      "image": "assets/products/p4.jpg"
     },
     {
       "id": "p5",
@@ -109,7 +120,8 @@
       },
       "price_range": "$8-40",
       "visual": "torus",
-      "color": "#ff9a56"
+      "color": "#ff9a56",
+      "image": "assets/products/p5.jpg"
     },
     {
       "id": "p6",
@@ -124,7 +136,8 @@
       },
       "price_range": "$15-300",
       "visual": "sphere",
-      "color": "#4ecdc4"
+      "color": "#4ecdc4",
+      "image": "assets/products/p6.jpg"
     },
     {
       "id": "p7",
@@ -139,7 +152,8 @@
       },
       "price_range": "$60-200",
       "visual": "cone",
-      "color": "#ff6b6b"
+      "color": "#ff6b6b",
+      "image": "assets/products/p7.jpg"
     },
     {
       "id": "p8",
@@ -154,7 +168,8 @@
       },
       "price_range": "$5-25",
       "visual": "strip",
-      "color": "#a8e6cf"
+      "color": "#a8e6cf",
+      "image": "assets/products/p8.jpg"
     },
     {
       "id": "p9",
@@ -169,7 +184,8 @@
       },
       "price_range": "$50-300",
       "visual": "cylinder",
-      "color": "#ffd93d"
+      "color": "#ffd93d",
+      "image": "assets/products/p9.jpg"
     },
     {
       "id": "p10",
@@ -184,7 +200,103 @@
       },
       "price_range": "$15-40",
       "visual": "torus",
-      "color": "#c084fc"
+      "color": "#c084fc",
+      "image": "assets/products/p10.jpg"
+    },
+    {
+      "id": "p11",
+      "name": "Hypochlorous Acid Sleep Spray",
+      "category": "sleep-optimization",
+      "trend_score": 83,
+      "description": "Clean sleep environment spray that kills 99.9% of bacteria on bedding without harsh chemicals — search up 8,300% as 'clean sleeping' becomes a wellness priority. Skin-safe, fragrance-free, and ideal for nightly pillow/bedside misting.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "hypochlorous acid spray bedding sleep",
+        "commission": "4%",
+        "url": "https://www.amazon.com/s?k=hypochlorous+acid+spray+bedding+sleep&tag=renionlab-20"
+      },
+      "price_range": "$12-25",
+      "visual": "cylinder",
+      "color": "#2dd4bf",
+      "social_proof": "8,300% search growth YoY",
+      "rating": 4.6,
+      "image": "assets/products/p11.jpg"
+    },
+    {
+      "id": "p12",
+      "name": "Magnesium Bisglycinate Complex",
+      "category": "sleep-optimization",
+      "trend_score": 78,
+      "description": "Highly absorbable magnesium for deep sleep and muscle relaxation — up 1,750% as consumers target sleep quality through mineral optimization. Superior bioavailability vs oxide, non-laxative, pairs with glycine for overnight recovery.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "magnesium bisglycinate sleep recovery",
+        "commission": "4%",
+        "url": "https://www.amazon.com/s?k=magnesium+bisglycinate+sleep+recovery&tag=renionlab-20"
+      },
+      "price_range": "$15-35",
+      "visual": "tetra",
+      "color": "#8b5cf6",
+      "social_proof": "1,750% search growth YoY",
+      "rating": 4.7,
+      "image": "assets/products/p12.jpg"
+    },
+    {
+      "id": "p13",
+      "name": "Cold Plunge Recovery Tub",
+      "category": "home-wellness",
+      "trend_score": 81,
+      "description": "At-home ice bath for muscle recovery and sleep quality — search up 7,000% as contrast therapy moves from biohackers to mainstream. Improves circulation, reduces inflammation, and deepens sleep through post-bath parasympathetic activation.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "cold plunge tub recovery ice bath",
+        "commission": "4%",
+        "url": "https://www.amazon.com/s?k=cold+plunge+tub+recovery+ice+bath&tag=renionlab-20"
+      },
+      "price_range": "$50-300",
+      "visual": "sphere",
+      "color": "#38bdf8",
+      "social_proof": "7,000% search growth YoY",
+      "rating": 4.5,
+      "image": "assets/products/p13.jpg"
+    },
+    {
+      "id": "p14",
+      "name": "Ashwagandha Sleep & Stress Gummies",
+      "category": "sensory-comfort",
+      "trend_score": 80,
+      "description": "Top-selling TikTok Shop stress relief gummy — Goli Nutrition moves 1M+ units/month as Gen Z embraces adaptogens for sleep. Cortisol reduction, anxiolytic effects, and nightly ritual positioning make this the gateway wellness product.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "ashwagandha gummies sleep stress relief",
+        "commission": "5%",
+        "url": "https://www.amazon.com/s?k=ashwagandha+gummies+sleep+stress+relief&tag=renionlab-20"
+      },
+      "price_range": "$15-30",
+      "visual": "octa",
+      "color": "#f97316",
+      "social_proof": "1M+ units/month (Goli)",
+      "rating": 4.6,
+      "image": "assets/products/p14.jpg"
+    },
+    {
+      "id": "p15",
+      "name": "Probiotic Gut Health Soda",
+      "category": "metabolic-tech",
+      "trend_score": 75,
+      "description": "Functional soda replacing gut health supplements — up 1,000% as consumers connect digestion quality to sleep quality. Probiotic + prebiotic formulations support the gut-brain-sleep axis with zero-pill convenience.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "probiotic soda gut health sleep",
+        "commission": "4%",
+        "url": "https://www.amazon.com/s?k=probiotic+soda+gut+health+sleep&tag=renionlab-20"
+      },
+      "price_range": "$10-25",
+      "visual": "dodeca",
+      "color": "#fbbf24",
+      "social_proof": "1,000% search growth YoY",
+      "rating": 4.4,
+      "image": "assets/products/p15.jpg"
     }
   ],
   "stories": [
@@ -229,6 +341,20 @@
       "hook": "How mouth tape evolved from a $0.02 biohack into a $40 luxury beauty product — hydrogel strips, beard-optimized adhesives, and the sleepmaxxing economy's premium tier",
       "cta": "Discover Beauty-Sleep",
       "visual": "hydrating-movie-closeup"
+    },
+    {
+      "id": "s8",
+      "title": "The Clean Sleep Revolution",
+      "hook": "Why hypochlorous acid spray is the newest addition to the nightstand — and the 8,300% search growth that signals a clean-sleep movement where bacteria-free bedding is the next wellness frontier",
+      "cta": "Sleep Cleaner",
+      "visual": "hypochlorous-spray-bedding"
+    },
+    {
+      "id": "s9",
+      "title": "The Magnesium Upgrade",
+      "hook": "How magnesium bisglycinate became the sleeper supplement of 2026 — and why mineral optimization is replacing melatonin for millions seeking deeper, drug-free sleep",
+      "cta": "Optimize Your Minerals",
+      "visual": "magnesium-supplement-sleep"
     }
   ],
   "experiments": [
@@ -260,6 +386,12 @@
       "id": "e4",
       "name": "Beauty-sleep hybrid collection",
       "hypothesis": "A curated beauty + sleep experience (hydrating mouth tape, LED masks, circadian lights) captures the premium sleepmaxxing audience at higher conversion than single-product pages",
+      "status": "proposed"
+    },
+    {
+      "id": "e5",
+      "name": "Clean sleep environment bundle",
+      "hypothesis": "A hypochlorous acid spray + sleep bonnet + mouth tape bundle positions 'clean sleeping' as a premium tier within sleepmaxxing",
       "status": "proposed"
     }
   ]
