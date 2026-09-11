@@ -1,4 +1,4 @@
-/* === THE SIGNAL — Trendy Design === */
+/* === THE SIGNAL — Commercial CSS === */
 
 :root {
     --bg: #0a0a0f;
@@ -132,6 +132,7 @@ body {
 }
 .hero-metrics {
     display: flex; justify-content: center; gap: 32px;
+    margin-bottom: 32px;
 }
 .metric {
     display: flex; flex-direction: column; align-items: center;
@@ -146,6 +147,38 @@ body {
     color: var(--fg-subtle); text-transform: uppercase;
     letter-spacing: 1px;
 }
+.email-capture {
+    display: flex; gap: 8px;
+    max-width: 360px; margin: 0 auto;
+}
+.email-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-size: 12px;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.email-input::placeholder { color: var(--fg-subtle); }
+.email-input:focus { border-color: var(--border-accent); }
+.email-btn {
+    padding: 10px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 590;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: var(--font);
+    white-space: nowrap;
+}
+.email-btn:hover { background: var(--accent-hover, #ff8a56); }
 
 /* === TRENDING PRODUCTS === */
 
@@ -158,7 +191,7 @@ body {
 }
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 16px;
     margin-bottom: 32px;
 }
@@ -192,14 +225,14 @@ body {
     margin-bottom: 16px;
 }
 .product-icon {
-    width: 56px; height: 56px;
+    width: 48px; height: 48px;
     background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.05));
     border-radius: var(--radius);
     display: flex; align-items: center; justify-content: center;
     color: var(--accent);
 }
 .product-icon svg {
-    width: 32px; height: 32px;
+    width: 28px; height: 28px;
 }
 .product-tag {
     font-size: 10px; font-weight: 600;
@@ -225,33 +258,41 @@ body {
     color: #0a0a0f;
 }
 .product-name {
-    font-size: 16px; font-weight: 600;
+    font-size: 15px; font-weight: 600;
     margin-bottom: 6px;
 }
 .product-desc {
     font-size: 12px; color: var(--fg-muted);
     line-height: 1.5;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+}
+.product-proof {
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 12px;
+    font-size: 10px;
+    font-family: var(--mono);
+}
+.proof-item {
+    color: var(--accent2);
 }
 .product-meta {
     display: flex; justify-content: space-between; align-items: center;
 }
 .product-price {
-    font-size: 18px; font-weight: 600;
+    font-size: 16px; font-weight: 600;
     color: var(--accent);
     font-family: var(--mono);
 }
 .product-cta {
     font-size: 12px; font-weight: 590;
-    color: var(--accent); text-decoration: none;
+    color: var(--bg); text-decoration: none;
     padding: 8px 16px;
-    border: 1px solid var(--border-accent);
+    background: var(--accent);
     border-radius: var(--radius);
     transition: all 0.2s ease;
 }
 .product-cta:hover {
-    background: var(--accent);
-    color: var(--bg);
+    background: var(--accent-hover, #ff8a56);
 }
 
 /* === STORIES === */
@@ -308,7 +349,7 @@ body {
 @media (max-width: 768px) {
     #app { padding: 16px; }
     .hero { padding: 32px 20px; }
-    .hero-metrics { gap: 20px; }
+    .hero-metrics { gap: 20px; flex-wrap: wrap; }
     .metric-value { font-size: 22px; }
     .products { grid-template-columns: 1fr; }
     .stories-list { grid-template-columns: 1fr; }
@@ -319,4 +360,5 @@ body {
     .nav { gap: 4px; }
     .nav-link { padding: 6px 10px; font-size: 11px; }
     .hero-title { font-size: 40px; }
+    .email-capture { flex-direction: column; }
 }
