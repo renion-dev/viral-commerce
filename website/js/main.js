@@ -14,6 +14,15 @@
         if (!grid) return;
         
         grid.innerHTML = products.map((p, i) => {
+            // Build affiliate URL from search if needed
+            let affiliateUrl = '';
+            if (p.affiliate) {
+                if (p.affiliate.url) affiliateUrl = p.affiliate.url;
+                else if (p.affiliate.search) {
+                    affiliateUrl = `https://www.amazon.com/s?k=${encodeURIComponent(p.affiliate.search)}&tag=renionlab-20`;
+                }
+            }
+            
             const badge = i === 0 ? '<span class="product-tag tag-hot">BESTSELLER</span>' : 
                          p.badge ? `<span class="product-tag tag-${p.badgeClass || 'new'}">${escape(p.badge)}</span>` : '';
             
@@ -21,7 +30,7 @@
                           `<div class="product-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/></svg></div>`;
             
             return `
-                <article class="product" data-url="${escape(p.affiliate?.url || '')}">
+                <article class="product" data-url="${escape(affiliateUrl)}">
                     <div class="product-visual">
                         <div class="product-image">${image}</div>
                         ${badge}
@@ -32,10 +41,11 @@
                         <div class="product-proof">
                             ${p.social_proof ? `<span class="proof-item">${escape(p.social_proof)}</span>` : ''}
                             ${p.rating ? `<span class="proof-item">★ ${p.rating}</span>` : ''}
+                            ${p.trend_score ? `<span class="proof-item">📈 ${p.trend_score}</span>` : ''}
                         </div>
                         <div class="product-meta">
                             <span class="product-price">${escape(p.price_range || '')}</span>
-                            <a href="${escape(p.affiliate?.url || '')}" class="product-cta" target="_blank" rel="noopener noreferrer">Shop on Amazon</a>
+                            <a href="${escape(affiliateUrl)}" class="product-cta" target="_blank" rel="noopener noreferrer">Shop on Amazon</a>
                         </div>
                     </div>
                 </article>
