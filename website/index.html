@@ -4,18 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Signal by RenionLab — Discover Trending Products</title>
-    <meta name="description" content="Discover emerging trends and viral products before everyone else.">
+    <meta name="description" content="Discover emerging trends, viral products, and cultural signals before everyone else.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,510;14..32,590&family=JetBrains+Mono:wght@400;510&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,510;14..32,590&family=JetBrains+Mono:wght@400;510&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="app">
-        <div id="ui" class="ui"></div>
-        <div id="modal-overlay" class="modal-overlay hidden"><div id="modal" class="modal"></div></div>
-        <div id="toast" class="toast hidden"></div>
+        <header id="header">
+            <div class="brand">
+                <span class="brand-icon">◈</span>
+                <span class="brand-name">RENIONLAB</span>
+                <span class="brand-tag">/ THE SIGNAL</span>
+            </div>
+            <nav id="nav">
+                <a href="#trending" class="nav-link active">TRENDING</a>
+                <a href="#discover" class="nav-link">DISCOVER</a>
+                <a href="#share" class="nav-link">SHARE</a>
+            </nav>
+        </header>
+
+        <section id="hero">
+            <div class="hero-content">
+                <div class="hero-badge"><span class="badge-dot"></span><span class="badge-text">LIVE — UPDATED HOURLY</span></div>
+                <h1 class="hero-title">Sleep Optimization</h1>
+                <p class="hero-tagline">The $470B sleep economy is waking up. Mouth tape, LED masks, and sauna blankets are trending. Here's what to buy.</p>
+                <div class="hero-stats">
+                    <div class="stat-box"><span class="stat-num">94</span><span class="stat-cap">SIGNAL STRENGTH</span></div>
+                    <div class="stat-box"><span class="stat-num">6</span><span class="stat-cap">PRODUCTS</span></div>
+                    <div class="stat-box"><span class="stat-num">+134%</span><span class="stat-cap">AVG GROWTH</span></div>
+                </div>
+            </div>
+            <div id="email-capture">
+                <input type="email" id="email-input" placeholder="Enter your email for trend alerts">
+                <button id="email-btn">Get Alerts</button>
+            </div>
+        </section>
+
+        <main id="main">
+            <section id="trending">
+                <h2 class="section-title">TRENDING PRODUCTS</h2>
+                <div id="products-grid">
+
+                    <article class="product-card">
+                        <span class="product-badge badge-hot">BESTSELLER</span>
+                        <div class="product-image">
+                            <img src="assets/products/p1.jpg" alt="Mouth Tape Sleep Strips" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Mouth Tape Sleep Strips</h3>
+                            <p class="product-desc">Drug-free nasal breathing aid. TikTok's #sleepmaxxing trend driving 134% search growth.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">📈 +134% growth</span>
+                                <span class="proof-item">★ 4.5</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$8 – $40</span>
+                                <a href="https://www.amazon.com/s?k=mouth+tape+sleep+strips&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <span class="product-badge badge-trending">+400%</span>
+                        <div class="product-image">
+                            <img src="assets/products/p2.jpg" alt="LED Face Mask" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">LED Red Light Therapy Mask</h3>
+                            <p class="product-desc">Beauty tech +400% on TikTok Shop. Acne treatment + anti-aging in one device.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">📈 +400% growth</span>
+                                <span class="proof-item">★ 4.3</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$15 – $300</span>
+                                <a href="https://www.amazon.com/s?k=LED+red+light+therapy+face+mask&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/products/p3.jpg" alt="Infrared Sauna Blanket" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Infrared Sauna Blanket</h3>
+                            <p class="product-desc">At-home spa recovery. Muscle relief, deep sweat, better circulation. 65% YoY growth.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">📈 +65% YoY</span>
+                                <span class="proof-item">★ 4.6</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$60 – $200</span>
+                                <a href="https://www.amazon.com/s?k=infrared+sauna+blanket+recovery&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <span class="product-badge badge-new">TRENDING</span>
+                        <div class="product-image">
+                            <img src="assets/products/p4.jpg" alt="Silk Sleep Bonnet" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Silk Sleep Bonnet</h3>
+                            <p class="product-desc">Hair protection + sleep optimization. +64% YoY. TikTok GRWM favorite for healthy hair.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">📈 +64% YoY</span>
+                                <span class="proof-item">★ 4.4</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$5 – $25</span>
+                                <a href="https://www.amazon.com/s?k=satin+sleep+bonnet+silk+hair+cap&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/products/p5.jpg" alt="Blue Light Therapy Device" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Blue Light Therapy Wand</h3>
+                            <p class="product-desc">Handheld acne treatment device. Under 5% of red light market but growing fast.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">📈 +38% YoY</span>
+                                <span class="proof-item">★ 4.2</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$35 – $80</span>
+                                <a href="https://www.amazon.com/s?k=blue+light+therapy+wand+acne&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/products/p6.jpg" alt="Smart Sleep Mask" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Smart Sleep Mask</h3>
+                            <p class="product-desc">Built-in Bluetooth speakers + sleep tracking. Fall asleep to music, wake refreshed.</p>
+                            <div class="product-proof">
+                                <span class="proof-item">🏆 Top-rated</span>
+                                <span class="proof-item">★ 4.7</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="product-price">$40 – $120</span>
+                                <a href="https://www.amazon.com/s?k=smart+sleep+mask+bluetooth&tag=renionlab-20" class="product-cta" target="_blank" rel="nofollow">Shop on Amazon</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="stories">
+                <h2 class="section-title">SIGNAL STORIES</h2>
+                <div id="stories-list">
+                    <article class="story-card">
+                        <h3>The Mouth Tape Revolution</h3>
+                        <p>Why millions are taping their mouths shut at night — and the science behind it</p>
+                    </article>
+                    <article class="story-card">
+                        <h3>Sleep Is the New Status Symbol</h3>
+                        <p>How Gen Z turned bedtime into a competitive optimization sport</p>
+                    </article>
+                    <article class="story-card">
+                        <h3>The Glow-Up Industrial Complex</h3>
+                        <p>Beauty tech is the fastest-growing corner of TikTok Shop. Here's what's inside.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <span class="footer-brand">◈ RENIONLAB</span>
+            <span class="footer-sep">·</span>
+            <span>Autonomous Commerce Lab</span>
+        </footer>
     </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>
