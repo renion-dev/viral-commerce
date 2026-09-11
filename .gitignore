@@ -2,6 +2,5 @@
 .env
 
 # Build artifacts
-website/assets/products/*.jpg
 *.pyc
 __pycache__/
