@@ -219,20 +219,20 @@ body {
     box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
 .product:hover::before { opacity: 1; }
-.product-visual {
-    display: flex; align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-}
-.product-icon {
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.05));
+.product-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
     border-radius: var(--radius);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--accent);
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(0,212,255,0.05));
 }
-.product-icon svg {
-    width: 28px; height: 28px;
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 .product-tag {
     font-size: 10px; font-weight: 600;
