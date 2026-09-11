@@ -1,11 +1,15 @@
-/* === RENIONLAB — True WOW Engine === */
+/* === THE SIGNAL by RenionLab — Production Engine === */
 
 (function() {
     'use strict';
 
-    const CONFIG = { maxProducts: 12, particleCount: 200 };
-    const STATE_KEY = 'renionlab_signal_v1';
+    const CONFIG = { maxProducts: 12 };
+    const STATE_KEY = 'renionlab_signal_prod';
 
+    // ═══════════════════════════════════════════
+    // STATE
+    // ═══════════════════════════════════════════
+    
     function loadState() {
         try {
             const s = JSON.parse(localStorage.getItem(STATE_KEY));
@@ -61,385 +65,46 @@
         }
     }
 
-    let cinemaCtx, cinemaCanvas, particles = [], worldState;
-
-    function initCinema() {
-        cinemaCanvas = document.getElementById('cinema');
-        cinemaCtx = cinemaCanvas.getContext('2d');
-        resizeCinema();
-        addEventListener('resize', resizeCinema);
-        createParticles();
-        animateCinema();
+    // ═══════════════════════════════════════════
+    // REAL IMAGES (Picsum — free, no API key)
+    // ═══════════════════════════════════════════
+    
+    function getImageUrl(id, width, height) {
+        // Picsum with seed = consistent image per product
+        return `https://picsum.photos/seed/${id}/${width}/${height}`;
     }
 
-    function resizeCinema() { cinemaCanvas.width = innerWidth; cinemaCanvas.height = innerHeight; }
+    function getBadgeHTML(p, i) {
+        if (i === 0) return '<span class="product-badge badge-hot">🔥 Bestseller</span>';
+        if (p.social_proof && p.social_proof.includes('400%')) return '<span class="product-badge badge-trending">📈 +400%</span>';
+        if (i < 3) return '<span class="product-badge badge-new">✨ Trending</span>';
+        return '';
+    }
 
-    function createParticles() {
-        particles = [];
-        for (let i = 0; i < CONFIG.particleCount; i++) {
-            particles.push({
-                x: Math.random() * innerWidth, y: Math.random() * innerHeight,
-                size: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.4,
-                speedY: -Math.random() * 0.6 - 0.2,
-                opacity: Math.random() * 0.5 + 0.1,
-                color: Math.random() > 0.6 ? '#ff6b35' : (Math.random() > 0.5 ? '#00d4ff' : '#7b2ff7')
-            });
+    // ═══════════════════════════════════════════
+    // DATA LOADING
+    // ═══════════════════════════════════════════
+    
+    let worldState;
+
+    async function loadWorld() {
+        try {
+            const res = await fetch('data/world-state.json?v=' + Date.now());
+            if (!res.ok) throw new Error('fetch failed');
+            return await res.json();
+        } catch (e) {
+            return {
+                world: { name: 'The Signal', tagline: 'Discover what is emerging', trend_score: 0 },
+                products: [],
+                stories: []
+            };
         }
     }
 
-    function animateCinema() {
-        cinemaCtx.clearRect(0, 0, cinemaCanvas.width, cinemaCanvas.height);
-
-        const grad = cinemaCtx.createRadialGradient(
-            cinemaCanvas.width / 2, cinemaCanvas.height / 2, 0,
-            cinemaCanvas.width / 2, cinemaCanvas.height / 2, cinemaCanvas.width * 0.5
-        );
-        grad.addColorStop(0, 'rgba(255,107,53,0.05)');
-        grad.addColorStop(0.4, 'rgba(123,47,247,0.03)');
-        grad.addColorStop(1, 'transparent');
-        cinemaCtx.fillStyle = grad;
-        cinemaCtx.fillRect(0, 0, cinemaCanvas.width, cinemaCanvas.height);
-
-        particles.forEach(p => {
-            p.x += p.speedX; p.y += p.speedY;
-            if (p.y < -10) { p.y = cinemaCanvas.height + 10; p.x = Math.random() * cinemaCanvas.width; }
-            if (p.x < -10) p.x = cinemaCanvas.width + 10;
-            if (p.x > cinemaCanvas.width + 10) p.x = -10;
-
-            cinemaCtx.globalAlpha = p.opacity;
-            cinemaCtx.fillStyle = p.color;
-            cinemaCtx.beginPath();
-            cinemaCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            cinemaCtx.fill();
-
-            cinemaCtx.globalAlpha = p.opacity * 0.15;
-            cinemaCtx.beginPath();
-            cinemaCtx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
-            cinemaCtx.fill();
-        });
-
-        cinemaCtx.globalAlpha = 0.015;
-        cinemaCtx.fillStyle = '#000';
-        for (let y = 0; y < cinemaCanvas.height; y += 3) cinemaCtx.fillRect(0, y, cinemaCanvas.width, 1);
-
-        cinemaCtx.globalAlpha = 1;
-        const vignette = cinemaCtx.createRadialGradient(
-            cinemaCanvas.width / 2, cinemaCanvas.height / 2, cinemaCanvas.width * 0.25,
-            cinemaCanvas.width / 2, cinemaCanvas.height / 2, cinemaCanvas.width * 0.75
-        );
-        vignette.addColorStop(0, 'transparent');
-        vignette.addColorStop(1, 'rgba(0,0,0,0.6)');
-        cinemaCtx.fillStyle = vignette;
-        cinemaCtx.fillRect(0, 0, cinemaCanvas.width, cinemaCanvas.height);
-
-        requestAnimationFrame(animateCinema);
-    }
-
-    // Three.js with WOW effects
-    let scene, camera, renderer, productMeshes = [], centralObject, signalRings;
-    let orbitParticles = [], energyBeams = [], shockwaves = [];
-    let mouse = new THREE.Vector2();
-    let raycaster = new THREE.Raycaster();
-
-    function initThree() {
-        scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x060814, 0.012);
-
-        camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
-        camera.position.set(0, 0, 10);
-
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(innerWidth, innerHeight);
-        renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-        renderer.setClearColor(0x060814, 0);
-
-        const container = document.createElement('div');
-        container.id = 'three-container';
-        container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;';
-        container.appendChild(renderer.domElement);
-        document.getElementById('app').insertBefore(container, document.getElementById('ui'));
-
-        // Lighting
-        scene.add(new THREE.AmbientLight(0xffffff, 0.25));
-        const l1 = new THREE.PointLight(0xff6b35, 3, 60);
-        l1.position.set(5, 5, 8);
-        scene.add(l1);
-        const l2 = new THREE.PointLight(0x00d4ff, 2, 60);
-        l2.position.set(-5, -3, 6);
-        scene.add(l2);
-        const l3 = new THREE.DirectionalLight(0xffffff, 0.2);
-        l3.position.set(0, 1, 1);
-        scene.add(l3);
-
-        // Central object with pulsing glow
-        const coreGeo = new THREE.IcosahedronGeometry(1.5, 2);
-        const coreMat = new THREE.MeshPhongMaterial({
-            color: 0xff6b35, emissive: 0xff6b35,
-            emissiveIntensity: 0.6, transparent: true, opacity: 0.9, flatShading: true
-        });
-        centralObject = new THREE.Mesh(coreGeo, coreMat);
-        centralObject.userData = { type: 'central' };
-        scene.add(centralObject);
-
-        // Multiple glow layers for central object
-        for (let i = 0; i < 3; i++) {
-            const glowGeo = new THREE.SphereGeometry(2.0 + i * 0.5, 32, 32);
-            const glowMat = new THREE.MeshBasicMaterial({
-                color: 0xff6b35,
-                transparent: true,
-                opacity: 0.12 - i * 0.03,
-                blending: THREE.AdditiveBlending,
-                side: THREE.BackSide
-            });
-            const glowMesh = new THREE.Mesh(glowGeo, glowMat);
-            glowMesh.userData = { glowIdx: i };
-            scene.add(glowMesh);
-        }
-
-        // Orbiting particles around center
-        for (let i = 0; i < 50; i++) {
-            const pGeo = new THREE.SphereGeometry(0.03, 4, 4);
-            const pMat = new THREE.MeshBasicMaterial({
-                color: Math.random() > 0.5 ? 0xff6b35 : 0x00d4ff,
-                transparent: true,
-                opacity: 0.8,
-                blending: THREE.AdditiveBlending
-            });
-            const pMesh = new THREE.Mesh(pGeo, pMat);
-            const angle = Math.random() * Math.PI * 2;
-            const radius = 2.5 + Math.random() * 2;
-            const speed = 0.005 + Math.random() * 0.01;
-            pMesh.userData = { angle, radius, speed, yOffset: (Math.random() - 0.5) * 2 };
-            scene.add(pMesh);
-            orbitParticles.push(pMesh);
-        }
-
-        // Signal rings
-        signalRings = new THREE.Group();
-        for (let i = 0; i < 3; i++) {
-            const ringGeo = new THREE.TorusGeometry(2.2 + i * 0.7, 0.015, 8, 64);
-            const ringMat = new THREE.MeshBasicMaterial({
-                color: i === 0 ? 0xff6b35 : 0x00d4ff,
-                transparent: true, opacity: 0.3 - i * 0.08
-            });
-            const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.rotation.x = Math.PI / 2 + i * 0.4;
-            ring.rotation.y = i * 0.6;
-            signalRings.add(ring);
-        }
-        scene.add(signalRings);
-
-        // Products with glow and energy beams
-        const products = (worldState.products || []).slice(0, CONFIG.maxProducts);
-        const count = products.length;
-        const radius = Math.max(3.5, count * 0.7);
-
-        products.forEach((p, i) => {
-            const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
-            const yOff = Math.sin(angle * 1.5) * 0.6;
-            const group = new THREE.Group();
-            group.position.set(Math.cos(angle) * radius, yOff, Math.sin(angle) * radius * 0.25);
-
-            const geo = getGeometry(p.visual);
-            const col = parseInt((p.color || '#ff6b35').replace('#', '0x'));
-            const mat = new THREE.MeshPhongMaterial({
-                color: col, emissive: col,
-                emissiveIntensity: 0.35, transparent: true, opacity: 0.9, flatShading: true
-            });
-            const mesh = new THREE.Mesh(geo, mat);
-            mesh.userData = { type: 'product', product: p, idx: i, baseY: yOff };
-            group.add(mesh);
-
-            // Glow for each product
-            const pGlowGeo = new THREE.SphereGeometry(0.5, 16, 16);
-            const pGlowMat = new THREE.MeshBasicMaterial({
-                color: col,
-                transparent: true,
-                opacity: 0.12,
-                blending: THREE.AdditiveBlending,
-                side: THREE.BackSide
-            });
-            const pGlow = new THREE.Mesh(pGlowGeo, pGlowMat);
-            group.add(pGlow);
-
-            scene.add(group);
-            productMeshes.push(mesh);
-
-            // Energy beam from center to product
-            const beamGeo = new THREE.BufferGeometry().setFromPoints([
-                new THREE.Vector3(0, 0, 0),
-                new THREE.Vector3(-Math.cos(angle) * radius * 0.8, -yOff * 0.5, 0)
-            ]);
-            const beamMat = new THREE.LineBasicMaterial({
-                color: col,
-                transparent: true,
-                opacity: 0.08,
-                blending: THREE.AdditiveBlending
-            });
-            const beam = new THREE.Line(beamGeo, beamMat);
-            group.add(beam);
-        });
-
-        // Grid
-        const grid = new THREE.GridHelper(35, 35, 0x12162e, 0x0d1020);
-        grid.position.y = -6;
-        grid.material.transparent = true;
-        grid.material.opacity = 0.12;
-        scene.add(grid);
-
-        // Interaction
-        renderer.domElement.addEventListener('mousemove', onMouseMove);
-        renderer.domElement.addEventListener('click', onClick);
-        renderer.domElement.addEventListener('wheel', onWheel);
-
-        addEventListener('resize', onResize);
-        animateThree();
-    }
-
-    function getGeometry(type) {
-        switch (type) {
-            case 'tetra': return new THREE.TetrahedronGeometry(0.42);
-            case 'octa': return new THREE.OctahedronGeometry(0.42);
-            case 'dodeca': return new THREE.DodecahedronGeometry(0.42);
-            case 'cylinder': return new THREE.CylinderGeometry(0.28, 0.28, 0.55, 8);
-            case 'torus': return new THREE.TorusGeometry(0.35, 0.12, 8, 16);
-            case 'sphere': return new THREE.SphereGeometry(0.42, 8, 6);
-            case 'cone': return new THREE.ConeGeometry(0.38, 0.5, 6);
-            case 'strip': return new THREE.BoxGeometry(0.6, 0.18, 0.08);
-            default: return new THREE.BoxGeometry(0.45, 0.45, 0.45);
-        }
-    }
-
-    function onMouseMove(e) {
-        mouse.x = (e.clientX / innerWidth) * 2 - 1;
-        mouse.y = -(e.clientY / innerHeight) * 2 + 1;
-        raycaster.setFromCamera(mouse, camera);
-        const hits = raycaster.intersectObjects(productMeshes);
-        const cvs = renderer.domElement;
-
-        if (hits.length > 0) {
-            const o = hits[0].object;
-            o.material.emissiveIntensity = 1.0;
-            o.scale.set(1.2, 1.2, 1.2);
-            cvs.style.cursor = 'pointer';
-        }
-        productMeshes.forEach(m => {
-            if (!hits.length || hits[0].object !== m) {
-                m.material.emissiveIntensity = 0.35;
-                m.scale.set(1, 1, 1);
-            }
-        });
-        if (!hits.length) cvs.style.cursor = 'default';
-    }
-
-    function onClick(e) {
-        raycaster.setFromCamera(mouse, camera);
-        const hits = raycaster.intersectObjects(productMeshes);
-        if (hits.length > 0 && hits[0].object.userData.type === 'product') {
-            const p = hits[0].object.userData.product;
-            openAffiliate(p);
-            createShockwave(hits[0].object.position.clone());
-        }
-    }
-
-    function createShockwave(position) {
-        const geo = new THREE.RingGeometry(0.1, 0.3, 32);
-        const mat = new THREE.MeshBasicMaterial({
-            color: 0xff6b35,
-            transparent: true,
-            opacity: 0.8,
-            blending: THREE.AdditiveBlending,
-            side: THREE.DoubleSide
-        });
-        const ring = new THREE.Mesh(geo, mat);
-        ring.position.copy(position);
-        ring.lookAt(camera.position);
-        scene.add(ring);
-        shockwaves.push({ mesh: ring, scale: 1, opacity: 0.8 });
-    }
-
-    function onWheel(e) {
-        camera.position.z = Math.max(6, Math.min(22, camera.position.z + e.deltaY * 0.01));
-    }
-
-    function onResize() {
-        camera.aspect = innerWidth / innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(innerWidth, innerHeight);
-    }
-
-    function animateThree() {
-        requestAnimationFrame(animateThree);
-        const t = Date.now() * 0.001;
-
-        // Central object pulse
-        if (centralObject) {
-            centralObject.rotation.y += 0.004;
-            centralObject.rotation.x += 0.002;
-            const pulse = 1 + Math.sin(t * 2.5) * 0.06;
-            centralObject.scale.set(pulse, pulse, pulse);
-        }
-
-        // Glow layers pulse
-        scene.children.forEach(child => {
-            if (child.userData && child.userData.glowIdx !== undefined) {
-                const baseScale = 1 + child.userData.glowIdx * 0.25;
-                const pulse = baseScale + Math.sin(t * 3 + child.userData.glowIdx) * 0.1;
-                child.scale.set(pulse, pulse, pulse);
-            }
-        });
-
-        // Orbiting particles
-        orbitParticles.forEach(p => {
-            p.userData.angle += p.userData.speed;
-            p.position.x = Math.cos(p.userData.angle) * p.userData.radius;
-            p.position.z = Math.sin(p.userData.angle) * p.userData.radius;
-            p.position.y = p.userData.yOffset + Math.sin(t * 2 + p.userData.angle) * 0.3;
-        });
-
-        // Signal rings
-        if (signalRings) {
-            signalRings.rotation.y += 0.003;
-            signalRings.rotation.z += 0.001;
-        }
-
-        // Products
-        productMeshes.forEach((m, i) => {
-            m.rotation.x += 0.005;
-            m.rotation.y += 0.006;
-            if (m.userData.baseY !== undefined) {
-                m.position.y = m.userData.baseY + Math.sin(t * 1.5 + i * 1.2) * 0.25;
-            }
-        });
-
-        // Shockwaves
-        for (let i = shockwaves.length - 1; i >= 0; i--) {
-            const sw = shockwaves[i];
-            sw.scale += 0.15;
-            sw.opacity -= 0.02;
-            sw.mesh.scale.set(sw.scale, sw.scale, sw.scale);
-            sw.mesh.material.opacity = sw.opacity;
-            if (sw.opacity <= 0) {
-                scene.remove(sw.mesh);
-                shockwaves.splice(i, 1);
-            }
-        }
-
-        // Cinematic camera
-        camera.position.x = Math.sin(t * 0.08) * 0.4;
-        camera.position.y = Math.cos(t * 0.12) * 0.25;
-        camera.lookAt(scene.position);
-
-        renderer.render(scene, camera);
-    }
-
-    function openAffiliate(product) {
-        if (product.affiliate && product.affiliate.search) {
-            window.open(`https://www.amazon.com/s?k=${encodeURIComponent(product.affiliate.search)}`, '_blank');
-        }
-    }
-
+    // ═══════════════════════════════════════════
+    // UI RENDERING
+    // ═══════════════════════════════════════════
+    
     function escape(s) {
         const d = document.createElement('div');
         d.textContent = s || '';
@@ -501,18 +166,32 @@
                     <div class="stat"><span class="stat-value">${products.length}</span><span class="stat-label">PRODUCTS</span></div>
                     <div class="stat"><span class="stat-value">${stories.length}</span><span class="stat-label">STORIES</span></div>
                 </div>
+                <div id="email-capture">
+                    <input type="email" id="email-input" placeholder="Get trend alerts →" />
+                    <button id="email-btn">Subscribe</button>
+                </div>
             </section>
 
             <aside id="products">
                 <h3 class="section-label">TRENDING PRODUCTS</h3>
-                <div id="products-list">
-                    ${products.slice(0, CONFIG.maxProducts).map((p) => `
-                        <div class="product-card" data-id="${escape(p.id)}" style="--card-accent:${p.color||'#ff6b35'}">
-                            <div class="product-name">${escape(p.name)}</div>
-                            <div class="product-desc">${escape(p.description||'')}</div>
-                            <div class="product-meta">
-                                <span class="product-price">${escape(p.price_range||'')}</span>
-                                <span class="product-cta">Shop →</span>
+                <div id="products-grid">
+                    ${products.slice(0, CONFIG.maxProducts).map((p, i) => `
+                        <div class="product-card" data-id="${escape(p.id)}">
+                            ${getBadgeHTML(p, i)}
+                            <div class="product-image">
+                                <img src="${getImageUrl(p.id, 400, 300)}" alt="${escape(p.name)}" loading="lazy" />
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">${escape(p.name)}</div>
+                                <div class="product-desc">${escape(p.description||'')}</div>
+                                <div class="product-proof">
+                                    ${p.social_proof ? `<span class="proof-text">${escape(p.social_proof)}</span>` : ''}
+                                    ${p.rating ? `<span class="proof-rating">★ ${p.rating}</span>` : ''}
+                                </div>
+                                <div class="product-meta">
+                                    <span class="product-price">${escape(p.price_range||'')}</span>
+                                    <button class="product-cta" data-id="${escape(p.id)}">Shop Now</button>
+                                </div>
                             </div>
                         </div>
                     `).join('')}
@@ -533,11 +212,27 @@
 
             <div id="share-panel">
                 <h3 class="section-label">SHARE CARD</h3>
-                <div id="share-preview"></div>
+                <div id="share-preview">
+                    <div class="share-placeholder">Loading...</div>
+                </div>
                 <button id="share-btn">Download Card</button>
                 <p class="share-hint">Share → drive traffic → earn affiliate</p>
             </div>
         `;
+
+        attachEvents();
+        
+        if (products.length > 0) {
+            setTimeout(() => generateShareCard(products[0]), 100);
+        }
+    }
+
+    // ═══════════════════════════════════════════
+    // EVENT HANDLERS
+    // ═══════════════════════════════════════════
+    
+    function attachEvents() {
+        const ui = document.getElementById('ui');
 
         ui.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', e => {
@@ -546,6 +241,8 @@
             });
         });
 
+        const products = worldState.products || [];
+        
         ui.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', () => {
                 const p = products.find(x => x.id === card.dataset.id);
@@ -553,6 +250,16 @@
             });
         });
 
+        ui.querySelectorAll('.product-cta').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const p = products.find(x => x.id === btn.dataset.id);
+                if (p) { viewProduct(p); openAffiliate(p); }
+            });
+        });
+
+        const stories = worldState.stories || [];
+        const w = worldState.world || worldState.brand || {};
         ui.querySelectorAll('.story-item').forEach(item => {
             item.addEventListener('click', () => {
                 const s = stories.find(x => x.id === item.dataset.id);
@@ -562,8 +269,8 @@
                     document.getElementById('products').style.display = 'none';
                     setTimeout(() => {
                         document.getElementById('products').style.display = '';
-                        document.querySelector('.hero-title').textContent = w.name || '';
-                        document.querySelector('.hero-tagline').textContent = w.tagline || '';
+                        document.querySelector('.hero-title').textContent = w.name || w.world_name || '';
+                        document.querySelector('.hero-tagline').textContent = w.tagline || w.world_tagline || '';
                     }, 4000);
                 }
             });
@@ -574,6 +281,25 @@
 
         const achievementsBtn = document.getElementById('achievements-btn');
         if (achievementsBtn) achievementsBtn.addEventListener('click', showAchievements);
+
+        const emailBtn = document.getElementById('email-btn');
+        const emailInput = document.getElementById('email-input');
+        if (emailBtn && emailInput) {
+            emailBtn.addEventListener('click', () => {
+                const email = emailInput.value.trim();
+                if (email && email.includes('@')) {
+                    state.email = email;
+                    saveState();
+                    showToast('📧', 'Subscribed!', 'You\'ll get trend alerts first');
+                    emailInput.value = '';
+                } else {
+                    showToast('⚠️', 'Invalid email', 'Please enter a valid email');
+                }
+            });
+            emailInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') emailBtn.click();
+            });
+        }
     }
 
     function viewProduct(p) {
@@ -615,33 +341,33 @@
         const ctx = cvs.getContext('2d');
 
         const grad = ctx.createLinearGradient(0, 0, 1200, 630);
-        grad.addColorStop(0, '#060814');
-        grad.addColorStop(1, '#0c1020');
+        grad.addColorStop(0, '#080b1a');
+        grad.addColorStop(1, '#0f1020');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, 1200, 630);
 
         ctx.fillStyle = '#ff6b35';
-        ctx.fillRect(0, 0, 1200, 3);
+        ctx.fillRect(0, 0, 1200, 4);
 
         ctx.fillStyle = '#ff6b35';
-        ctx.font = '500 22px Inter, system-ui';
+        ctx.font = '500 24px Inter, system-ui';
         ctx.fillText('◈ RENIONLAB', 60, 80);
 
         ctx.fillStyle = '#f7f8f8';
-        ctx.font = '510 44px Inter, system-ui';
+        ctx.font = '510 48px Inter, system-ui';
         ctx.fillText(product.name, 60, 280);
 
         ctx.fillStyle = '#8a8f98';
-        ctx.font = '400 20px Inter, system-ui';
+        ctx.font = '400 22px Inter, system-ui';
         const desc = (product.description || '').length > 80 ? (product.description || '').slice(0, 80) + '...' : (product.description || '');
         ctx.fillText(desc, 60, 340);
 
         ctx.fillStyle = '#ff6b35';
-        ctx.font = '590 28px JetBrains Mono, monospace';
+        ctx.font = '590 32px JetBrains Mono, monospace';
         ctx.fillText(product.price_range || '', 60, 450);
 
         ctx.fillStyle = '#00d4ff';
-        ctx.font = '510 16px Inter, system-ui';
+        ctx.font = '510 18px Inter, system-ui';
         ctx.fillText('Discover at The Signal →', 60, 540);
 
         const url = cvs.toDataURL('image/png');
@@ -675,21 +401,15 @@
         overlay.onclick = () => overlay.classList.add('hidden');
     }
 
-    async function loadWorld() {
-        try {
-            const res = await fetch('data/world-state.json?v=' + Date.now());
-            if (!res.ok) throw new Error('fetch failed');
-            return await res.json();
-        } catch (e) {
-            return { world: { name: 'The Signal', tagline: 'Loading...', trend_score: 0 }, products: [], stories: [] };
+    function openAffiliate(product) {
+        if (product.affiliate && product.affiliate.search) {
+            window.open(`https://www.amazon.com/s?k=${encodeURIComponent(product.affiliate.search)}`, '_blank');
         }
     }
 
     async function init() {
         worldState = await loadWorld();
         renderUI();
-        initCinema();
-        initThree();
 
         if (!state.lastVisit) showToast('👁️', 'Welcome', 'You entered The Signal');
 

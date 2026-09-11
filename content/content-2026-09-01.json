@@ -1,0 +1,61 @@
+[
+  {
+    "id": "h1",
+    "product_id": "p4",
+    "format": "headline",
+    "text": "The 6,000-Step Rebellion",
+    "hook": "Japan's walking method exploded +2,968% this year. No pain, no gain — just walk slower and feel better. Here's why the fitness world is quietly rewriting its rules.",
+    "cta": "Start Walking Smarter",
+    "visual": "walking-path-aura",
+    "status": "ready"
+  },
+  {
+    "id": "h2",
+    "product_id": "p7",
+    "format": "headline",
+    "text": "Sweat in Your Pajamas",
+    "hook": "The infrared sauna blanket doing $80-200 worth of spa recovery while you binge-watch — and why recovery culture just found its 'TikTok Made Me Buy It' moment.",
+    "cta": "Recover at Home",
+    "visual": "sauna-blanket-roll",
+    "status": "ready"
+  },
+  {
+    "id": "h3",
+    "product_id": "p8",
+    "format": "headline",
+    "text": "Your Hair Care, But Make It a Night Ritual",
+    "hook": "Sleep bonnets are up 64% this year — not because people suddenly care about frizz, but because bedtime stopped being a chore and started being content.",
+    "cta": "Protect Your Sleep Hair",
+    "visual": "bonnet-glow",
+    "status": "ready"
+  },
+  {
+    "id": "s6",
+    "title": "The Night Routine Industrial Complex",
+    "hook": "Mouth tape, LED masks, sauna blankets, sleep bonnets — the bedroom is the new wellness showroom, and every object on your nightstand is now a content moment. This is what happens when self-care becomes a nightly performance.",
+    "cta": "Build Your Night Routine",
+    "visual": "nightstand-explosion",
+    "status": "ready"
+  },
+  {
+    "id": "v1",
+    "title": "What's Your Wellness Archetype?",
+    "description": "A shareable 3D artifact: user answers 3 quick questions about their stress/sleep/movement habits, and the system generates a personalized 'archetype card' — a visually striking 3D object with their result, their top product match, and a one-line hook they can post. Built for screenshots and shares. Each archetype maps to a product category, so the share drives affiliate context naturally.",
+    "mechanics": [
+      "3-question micro-quiz rendered as a cinematic 3D interaction",
+      "Result: a procedurally-styled 3D object (different geometry per archetype) with the user's archetype name floating above it",
+      "One-tap share exports a WebM clip or PNG of their archetype card",
+      "Each archetype links to the most relevant product's 3D view"
+    ],
+    "archetypes": [
+      { "name": "The Optimizer", "description": "Tracks everything, measures outcomes, wants data", "product_hint": "p3" },
+      { "name": "The Decompressor", "description": "Stress is the enemy, calm is the goal", "product_hint": "p2" },
+      { "name": "The Ritualist", "description": "Bedtime is sacred, routine is identity", "product_hint": "p5" },
+      { "name": "The Mover", "description": "Movement is meditation, sweat is clarity", "product_hint": "p4" },
+      { "name": "The Glow-Getter", "description": "Visible results, shareable moments, beauty as wellness", "product_hint": "p6" }
+    ],
+    "cta": "Find Your Archetype",
+    "visual": "archetype-card-preview",
+    "status": "ready"
+  }
+]

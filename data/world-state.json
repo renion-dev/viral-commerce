@@ -183,11 +183,11 @@
       "visual": "sleepmaxxing-nightstand"
     },
     {
-      "id": "s5",
-      "title": "The Glow-Up Industrial Complex",
-      "hook": "From $15 LED masks to $200 sauna blankets — beauty tech is the fastest-growing corner of TikTok Shop, and it's rewriting the rules of self-care commerce",
-      "cta": "Shop Beauty Tech",
-      "visual": "led-mask-glow"
+      "id": "s6",
+      "title": "The Night Routine Industrial Complex",
+      "hook": "Mouth tape, LED masks, sauna blankets, sleep bonnets — the bedroom is the new wellness showroom, and every object on your nightstand is now a content moment. This is what happens when self-care becomes a nightly performance.",
+      "cta": "Build Your Night Routine",
+      "visual": "nightstand-explosion"
     }
   ],
   "experiments": [
@@ -207,6 +207,12 @@
       "id": "e3",
       "name": "Sleep optimization vertical",
       "hypothesis": "A sleepmaxxing-themed experience captures the Gen Z/Millennial sleep optimization audience at higher conversion than generic wellness",
+      "status": "proposed"
+    },
+    {
+      "id": "v1",
+      "name": "Wellness Archetype shareable card",
+      "hypothesis": "A 3-question cinematic quiz that generates a personalized 3D archetype card drives shares and affiliate clicks via visual artifact virality",
       "status": "proposed"
     }
   ]
