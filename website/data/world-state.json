@@ -27,9 +27,13 @@
       "Wareable: infrared sauna blankets best picks 2026 [8]",
       "The Industry Beauty: beauty tech +400% TikTok Shop [9]",
       "Reddit: r/decadeology 'most frustrating cultural trends of 2026' [4]",
-      "TikTok Shop U.S. GMV $9B through May 2026 — structural shift [3]"
+      "TikTok Shop U.S. GMV $9B through May 2026 — structural shift [3]",
+      "Vogue Adria: Loops Night Shift Hydrating Mouth Tape launches Sept 2026 — hydrogel + HA + peptides [4]",
+      "Sleep Foundation: Loftie Lamp named Best Wake-Up Light 2026 — circadian optimization premium tier [2]",
+      "TikTok Shop: Mood/ambient lights rank #7 trending products 2026 — bedroom lighting wellness [3]",
+      "Sleep market projected $71B by 2026; mouth tape market stratified into 3 tiers [5]"
     ],
-    "tagline": "The $470B sleep economy is waking up — sensory comfort, sleepmaxxing, and metabolic tech"
+    "tagline": "The $470B sleep economy is waking up — sensory comfort, sleepmaxxing, beauty-sleep hybrids, and circadian optimization"
   },
   "products": [
     {
@@ -97,7 +101,7 @@
       "name": "Sleepmaxxing Mouth Tape Kit",
       "category": "sleep-optimization",
       "trend_score": 92,
-      "description": "Sleepmaxxing is the breakout wellness trend of late 2026 — mouth tape leading the charge at +134% search growth. Top TikTok Shop brand Nasalite moves 1.7M+ units/month. Aesthetic sleep optimization meets viral unboxing culture. Low COGS ($0.02-0.07/unit) with premium markup to $40 for 3-month supply. PFAS-free and skin-safe formulations are the differentiator in a market with quality concerns.",
+      "description": "Sleepmaxxing is the breakout wellness trend of late 2026 — mouth tape leading the charge at +134% search growth. Top TikTok Shop brand Nasalite moves 1.7M+ units/month. The category has stratified into 3 tiers: Nasalite (brand trust/viral), Hostage Tape (strongest hold), and generics (price). New premium tier emerging: hydrating hydrogel strips (Loops Night Shift) blend beauty + sleep at $20-40 vs standard $8-15. Beard-optimized tapes target men with facial hair. Low COGS ($0.02-0.07/unit) with premium markup to $40 for 3-month supply. PFAS-free and skin-safe formulations are the differentiator amid quality concerns.",
       "affiliate": {
         "type": "amazon",
         "search": "mouth tape for sleep nasal breathing strips",
@@ -151,6 +155,36 @@
       "price_range": "$5-25",
       "visual": "strip",
       "color": "#a8e6cf"
+    },
+    {
+      "id": "p9",
+      "name": "Circadian Wake-Up Light",
+      "category": "sleep-optimization",
+      "trend_score": 83,
+      "description": "Circadian wake-up lights simulate natural sunrise to gently rouse the brain — the Loftie Lamp ($299) leads the premium segment, earning Sleep Foundation's 2026 Best Wake-Up Light award. Tunable spectrum shifts from warm amber (2200K, melatonin support) to cool white (5000K, morning alertness). The bedroom lighting optimization trend extends sleepmaxxing beyond the bed itself — the nightstand is now a wellness tech hub.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "circadian wake up light lamp sunrise alarm",
+        "commission": "4%"
+      },
+      "price_range": "$50-300",
+      "visual": "cylinder",
+      "color": "#ffd93d"
+    },
+    {
+      "id": "p10",
+      "name": "Premium Hydrating Mouth Tape (Beauty-Sleep Hybrid)",
+      "category": "sleep-optimization",
+      "trend_score": 86,
+      "description": "The next evolution of mouth tape merges overnight beauty with sleep optimization. Loops Night Shift Hydrating Mouth Tape (launched Sept 2026) uses hydrogel strips infused with hyaluronic acid, peptides, and botanical oils — encouraging nasal breathing while acting as an intensive perioral overnight mask. Commands $15-40 vs standard tape's $8-15, signaling premiumization of the sleepmaxxing category and the convergence of beauty + sleep rituals.",
+      "affiliate": {
+        "type": "amazon",
+        "search": "hydrating mouth tape hydrogel sleep strips beauty",
+        "commission": "5%"
+      },
+      "price_range": "$15-40",
+      "visual": "torus",
+      "color": "#c084fc"
     }
   ],
   "stories": [
@@ -188,6 +222,13 @@
       "hook": "Mouth tape, LED masks, sauna blankets, sleep bonnets — the bedroom is the new wellness showroom, and every object on your nightstand is now a content moment. This is what happens when self-care becomes a nightly performance.",
       "cta": "Build Your Night Routine",
       "visual": "nightstand-explosion"
+    },
+    {
+      "id": "s7",
+      "title": "The Beauty of Breathing",
+      "hook": "How mouth tape evolved from a $0.02 biohack into a $40 luxury beauty product — hydrogel strips, beard-optimized adhesives, and the sleepmaxxing economy's premium tier",
+      "cta": "Discover Beauty-Sleep",
+      "visual": "hydrating-movie-closeup"
     }
   ],
   "experiments": [
@@ -213,6 +254,12 @@
       "id": "v1",
       "name": "Wellness Archetype shareable card",
       "hypothesis": "A 3-question cinematic quiz that generates a personalized 3D archetype card drives shares and affiliate clicks via visual artifact virality",
+      "status": "proposed"
+    },
+    {
+      "id": "e4",
+      "name": "Beauty-sleep hybrid collection",
+      "hypothesis": "A curated beauty + sleep experience (hydrating mouth tape, LED masks, circadian lights) captures the premium sleepmaxxing audience at higher conversion than single-product pages",
       "status": "proposed"
     }
   ]
